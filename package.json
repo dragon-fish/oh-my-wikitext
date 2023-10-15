@@ -1,0 +1,24 @@
+{
+  "name": "oh-my-wikitext",
+  "version": "0.1.0",
+  "description": "Oh My Wikitext",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "vuepress build src",
+    "clean-dev": "vuepress dev src --clean-cache",
+    "dev": "vuepress dev src",
+    "update-package": "pnpm dlx vp-update"
+  },
+  "devDependencies": {
+    "@vuepress/bundler-vite": "2.0.0-beta.67",
+    "prettier": "^3.0.3",
+    "vuepress": "2.0.0-beta.67",
+    "vuepress-theme-hope": "2.0.0-beta.238"
+  },
+  "dependencies": {
+    "@vuepress/plugin-register-components": "2.0.0-beta.67",
+    "naive-ui": "^2.35.0",
+    "wiki-saikou": "^3.2.1"
+  }
+}
