@@ -16,8 +16,9 @@ export default hopeTheme({
 
   logo: '/logo.svg',
 
-  repo: 'vuepress-theme-hope/vuepress-theme-hope',
-
+  repo: 'dragon-fish/oh-my-wikitext',
+  docsRepo: 'dragon-fish/oh-my-wikitext',
+  docsBranch: 'master',
   docsDir: 'src',
 
   locales: {
