@@ -7,13 +7,13 @@
       :item-style="{ flex: 1 }"
     >
       <div class="textarea-container" style="flex: 1">
-        <MonacoEditor
+        <textarea
           class="wikitext-input"
           style="width: 100%; min-height: 20em; resize: vertical"
           type="textarea"
-          v-model:value="inputRef"
+          v-model="inputRef"
           filename="default.wikitext"
-        ></MonacoEditor>
+        ></textarea>
         <div style="width: 100%; display: flex; gap: 1rem">
           <button style="flex: 1" @click="handleSubmit">提交答案</button>
           <button style="flex: 1" @click="handleReset">重置</button>
@@ -35,7 +35,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { MediaWikiApi } from 'wiki-saikou'
-import MonacoEditor from './MonacoEditor/MonacoEditor.vue'
+// import MonacoEditor from './MonacoEditor/MonacoEditor.vue'
 
 // Types
 type AwaitAble<T> = T | Promise<T>

@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import { ref, shallowRef, onMounted, nextTick, onUnmounted } from 'vue'
 import { createModel } from './monaco'
-import * as monaco from 'monaco-editor'
+import * as monaco from 'monaco-editor/esm/vs/editor/editor.api'
 import { effect } from 'vue'
 
 const props = defineProps<{
