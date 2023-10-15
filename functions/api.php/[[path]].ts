@@ -10,11 +10,11 @@ export const onRequest = async (
 ): Promise<Response> => {
   const request = ctx.request
 
-  const url = new URL(request.url)
-  url.host = 'zh.moegirl.org.cn'
-  url.protocol = 'https:'
-  url.port = ''
+  const endpointURL = new URL(ctx.env.MW_API_ENDPOINT)
+  const requestURL = new URL(request.url)
 
-  const proxy = new Request(url, request as any)
+  endpointURL.search = requestURL.search
+
+  const proxy = new Request(endpointURL, request as any)
   return fetch(proxy)
 }
