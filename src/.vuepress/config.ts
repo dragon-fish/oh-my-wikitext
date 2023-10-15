@@ -6,7 +6,7 @@ import { viteBundler } from '@vuepress/bundler-vite'
 
 export default defineUserConfig({
   base: '/',
-  port: 1011,
+  port: 1005,
   theme,
 
   locales: {

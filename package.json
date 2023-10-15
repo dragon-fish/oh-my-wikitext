@@ -7,18 +7,22 @@
   "scripts": {
     "build": "vuepress build src",
     "clean-dev": "vuepress dev src --clean-cache",
-    "dev": "vuepress dev src",
+    "dev": "run-p dev:*",
+    "dev:vuepress": "vuepress dev src",
+    "dev:wrangler": "wrangler pages dev --compatibility-date=2023-10-10 --proxy 1005 --port 1011",
     "update-package": "pnpm dlx vp-update"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20231010.0",
     "@vuepress/bundler-vite": "2.0.0-beta.67",
+    "npm-run-all2": "^6.1.1",
     "prettier": "^3.0.3",
     "vuepress": "2.0.0-beta.67",
-    "vuepress-theme-hope": "2.0.0-beta.238"
+    "vuepress-theme-hope": "2.0.0-beta.238",
+    "wrangler": "^3.13.1"
   },
   "dependencies": {
     "@vuepress/plugin-register-components": "2.0.0-beta.67",
-    "naive-ui": "^2.35.0",
     "wiki-saikou": "^3.2.1"
   }
 }

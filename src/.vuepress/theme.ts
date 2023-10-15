@@ -72,7 +72,6 @@ export default hopeTheme({
             name: 'playground#wikitext',
             component: 'WikitextPlayground',
             propsGetter: (data: PlaygroundData): Record<string, any> => {
-              console.info('[playground#wikitext]', data)
               return {
                 key: data.key,
                 title: data.title,

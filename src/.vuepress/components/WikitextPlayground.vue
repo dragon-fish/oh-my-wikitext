@@ -1,44 +1,38 @@
 <template>
   <div class="wikitext-playground">
     <h3>{{ decodeURI(title) }}</h3>
-    <NSpace
+    <div
       class="editform-container"
-      style="width: 100%"
+      style="width: 100%; display: flex; gap: 1rem"
       :item-style="{ flex: 1 }"
     >
-      <div class="textarea-container">
-        <NInput
+      <div class="textarea-container" style="flex: 1">
+        <textarea
           class="wikitext-input"
+          style="width: 100%; min-height: 20em; resize: vertical"
           type="textarea"
-          v-model:value="inputRef"
-        ></NInput>
-        <NButtonGroup style="width: 100%">
-          <NButton style="flex: 1" type="primary" @click="handleSubmit"
-            >提交答案</NButton
-          >
-          <NButton style="flex: 1" type="warning" @click="handleReset"
-            >重置</NButton
-          >
-          <NButton style="flex: 1" type="info" @click="handleHelpme"
-            >帮帮我！</NButton
-          >
-        </NButtonGroup>
+          v-model="inputRef"
+        ></textarea>
+        <div style="width: 100%; display: flex; gap: 1rem">
+          <button style="flex: 1" @click="handleSubmit">提交答案</button>
+          <button style="flex: 1" @click="handleReset">重置</button>
+          <button style="flex: 1" @click="handleHelpme">帮帮我！</button>
+        </div>
       </div>
-      <div class="wikitext-output">
+      <div class="wikitext-output" style="flex: 1">
         <iframe frameborder="0" :srcdoc="output || '等待提交……'"></iframe>
       </div>
-    </NSpace>
+    </div>
     <div class="actions-container">
       <p>
-        结果：<NTag :type="answerType">{{ answerComments }}</NTag>
+        结果：<Badge :type="answerType">{{ answerComments }}</Badge>
       </p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, toRaw, onMounted } from 'vue'
-import { NInput, NSpace, NButtonGroup, NButton, NTag } from 'naive-ui'
+import { ref, computed, onMounted } from 'vue'
 import { MediaWikiApi } from 'wiki-saikou'
 
 // Types
