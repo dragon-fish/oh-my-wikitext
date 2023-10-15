@@ -8,7 +8,7 @@ export default hopeTheme({
   hostname: 'https://vuepress-theme-hope-docs-demo.netlify.app',
 
   author: {
-    name: 'Moegirl Pedia',
+    name: 'Moegirlpedia',
     url: 'https://zh.moegirl.org.cn/',
   },
 

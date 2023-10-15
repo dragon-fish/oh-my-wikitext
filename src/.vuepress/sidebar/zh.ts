@@ -11,6 +11,20 @@ export const zhSidebar = sidebar({
       link: 'basic/',
       children: 'structure',
     },
+    {
+      text: '使用模板',
+      icon: 'laptop-code',
+      prefix: 'template/',
+      link: 'template/',
+      children: 'structure',
+    },
+    {
+      text: '进阶语法',
+      icon: 'laptop-code',
+      prefix: 'advanced/',
+      link: 'advanced/',
+      children: 'structure',
+    },
     'slides',
   ],
 })
