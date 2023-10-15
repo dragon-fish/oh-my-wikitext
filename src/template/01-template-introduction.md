@@ -8,6 +8,7 @@ title: 模板入门
 - <WikiTemplate name='模板名' args='参数是字符串' />
 - <WikiTemplate name='模板名' :args="['参数是数组', '第二个参数', '参数里有=号']" />
 - <WikiTemplate name='模板名' :args="{ foo: '参数是对象', bar: 'baz' }" />
+- <WikiTemplate name='#if: {{{ text }}}' :args="['是的', '不是']" />
 
 ## 小测验
 
