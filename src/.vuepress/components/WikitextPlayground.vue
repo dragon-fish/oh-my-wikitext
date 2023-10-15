@@ -7,25 +7,26 @@
       :item-style="{ flex: 1 }"
     >
       <div class="textarea-container" style="flex: 1">
-        <textarea
+        <MonacoEditor
           class="wikitext-input"
           style="width: 100%; min-height: 20em; resize: vertical"
           type="textarea"
-          v-model="inputRef"
-        ></textarea>
+          v-model:value="inputRef"
+          filename="default.wikitext"
+        ></MonacoEditor>
         <div style="width: 100%; display: flex; gap: 1rem">
           <button style="flex: 1" @click="handleSubmit">提交答案</button>
           <button style="flex: 1" @click="handleReset">重置</button>
           <button style="flex: 1" @click="handleHelpme">帮帮我！</button>
         </div>
       </div>
-      <div class="wikitext-output" style="flex: 1">
+      <div class="wikitext-output" style="flex: 1; display: flex">
         <iframe frameborder="0" :srcdoc="output || '等待提交……'"></iframe>
       </div>
     </div>
     <div class="actions-container">
       <p>
-        结果：<Badge :type="answerType">{{ answerComments }}</Badge>
+        结果：<StatusTag :type="answerType">{{ answerComments }}</StatusTag>
       </p>
     </div>
   </div>
@@ -34,6 +35,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { MediaWikiApi } from 'wiki-saikou'
+import MonacoEditor from './MonacoEditor/MonacoEditor.vue'
 
 // Types
 type AwaitAble<T> = T | Promise<T>
@@ -136,6 +138,7 @@ const onCheckAnswer = getHookFunction('onCheckAnswer') as (ctx: {
 // Methods
 async function handleReset() {
   answerStatus.value = null
+  output.value = ''
   await onBeforeMount({ api })
   inputRef.value =
     getFileContent('default.wikitext') || getFileContent('default.wiki')

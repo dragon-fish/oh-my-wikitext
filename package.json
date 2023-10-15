@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@vuepress/plugin-register-components": "2.0.0-beta.67",
+    "monaco-editor": "^0.44.0",
     "wiki-saikou": "^3.2.1"
   }
 }
